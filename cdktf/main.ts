@@ -8,13 +8,15 @@ class MyStack extends TerraformStack {
   constructor(scope: Construct, id: string) {
     super(scope, id);
 
-    const resourceGroupName = "personal";
+    const name = "juice-shop-workshop";
+
+    const resourceGroupName = name;
     const location = "eastus";
 
     new AzurermProvider(this, "azurerm", { features: {} });
 
     new VirtualNetwork(this, "vnet", {
-      name: "personal",
+      name,
       location,
       resourceGroupName,
       addressSpace: ["10.10.0.0/20"],
@@ -26,33 +28,12 @@ class MyStack extends TerraformStack {
       ],
     });
 
-    // TODO: Re-enable this when my subscription can create spot instances
-    // new KubernetesClusterNodePool(this, "spot-node-pool", {
-    //   name: "spot",
-    //   kubernetesClusterId: k8sCluster.id,
-    //   vmSize: "Standard_B2s",
-    //   nodeCount: 1,
-    //   minCount: 1,
-    //   maxCount: 3,
-    //   priority: "Spot",
-    //   evictionPolicy: "Delete",
-    //   enableAutoScaling: true,
-    //   nodeLabels: {
-    //     "kubernetes.azure.com/scalesetpriority": "spot",
-    //   },
-    //   nodeTaints: ["kubernetes.azure.com/scalesetpriority=spot:NoSchedule"],
-    // });
-
-    // TODO: Configure flux automatically here when this PR is merged:
-    // https://github.com/hashicorp/terraform-provider-azurerm/issues/15011
-
     new kubernetesCluster.KubernetesCluster(this, "k8s", {
-      name: "home",
-      dnsPrefix: "home", // prefix of the hostname of the publicly exposed cluster api
-      // privateDnsZoneId: privateDns.id,
-      location: "eastus",
+      name,
+      dnsPrefix: name,
+      location,
       resourceGroupName,
-      kubernetesVersion: "1.26",
+      kubernetesVersion: "1.27",
       automaticChannelUpgrade: "patch",
       skuTier: "Free",
       identity: {
