@@ -11,3 +11,13 @@ az account show
 
 
 npx cdktf-cli init --template typescript
+
+
+
+az aks get-credentials --resource-group juice-shop-workshop --name juice-shop-workshop
+
+
+https://github.com/juice-shop/multi-juicer
+
+
+
