@@ -1,6 +1,10 @@
 import { Construct } from "constructs";
 import { App, TerraformStack } from "cdktf";
-import { kubernetesCluster } from "@cdktf/provider-azurerm";
+import {
+  kubernetesCluster,
+  kubernetesClusterExtension,
+  kubernetesFluxConfiguration,
+} from "@cdktf/provider-azurerm";
 import { AzurermProvider } from "@cdktf/provider-azurerm/lib/provider";
 import { VirtualNetwork } from "@cdktf/provider-azurerm/lib/virtual-network";
 import { ResourceGroup } from "@cdktf/provider-azurerm/lib/resource-group";
@@ -32,7 +36,7 @@ class MyStack extends TerraformStack {
       ],
     });
 
-    new kubernetesCluster.KubernetesCluster(this, "k8s", {
+    const cluster = new kubernetesCluster.KubernetesCluster(this, "k8s", {
       name,
       dnsPrefix: name,
       location,
@@ -55,6 +59,34 @@ class MyStack extends TerraformStack {
       //   subnetId: vnet.subnet.get(0).id,
       // },
     });
+
+    // setup flux
+
+    const clusterExtension =
+      new kubernetesClusterExtension.KubernetesClusterExtension(this, "flux", {
+        name: "flux",
+        clusterId: cluster.id,
+        extensionType: "microsoft.flux",
+      });
+
+    new kubernetesFluxConfiguration.KubernetesFluxConfiguration(
+      this,
+      "flux-config",
+      {
+        name: "flux",
+        clusterId: cluster.id,
+        namespace: "flux-system",
+
+        gitRepository: {
+          url: "https://github.com/dbirks/juice-shop-workshop",
+          referenceType: "branch",
+          referenceValue: "main",
+        },
+        kustomizations: [{ name: "flux", path: "flux" }],
+
+        dependsOn: [clusterExtension],
+      }
+    );
   }
 }
 
