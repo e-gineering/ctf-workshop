@@ -7,7 +7,7 @@ metadata:
 spec:
   type: oci
   interval: 1h
-  url: oci://ghcr.io/juice-shop/multi-juicer
+  url: oci://ghcr.io/juice-shop/multi-juicer/helm/multi-juicer
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
