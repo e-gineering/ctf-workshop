@@ -40,3 +40,10 @@ spec:
         limits:
           cpu: 200m
           memory: 300Mi
+
+    balancer:
+      metrics:
+        enabled: true
+        # Create dashboards in ConfigMaps for Grafana to pick up and import
+        dashboards:
+          enabled: true
