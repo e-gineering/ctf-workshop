@@ -74,3 +74,9 @@ spec:
         - hosts:
             - ctf.silly.hair
           secretName: tls-secret
+
+    juiceShopCleanup:
+      # After this period of being unused, the Juice Shop instance will be a candidate for deletion
+      gracePeriod: 1d
+      # Run the cleanup job every hour
+      cron: "0 * * * *"
