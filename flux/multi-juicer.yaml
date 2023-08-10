@@ -48,3 +48,12 @@ spec:
         # Create dashboards in ConfigMaps for Grafana to pick up and import
         dashboards:
           enabled: true
+
+    ingress:
+      enabled: true
+      annotations:
+        kubernetes.io/ingress.class: nginx
+      hosts:
+        - host: ctf.silly.hair
+          paths:
+            - "/"
