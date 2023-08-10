@@ -76,14 +76,13 @@ class MyStack extends TerraformStack {
         name: "flux",
         clusterId: cluster.id,
         namespace: "flux-system",
-
         gitRepository: {
           url: "https://github.com/dbirks/juice-shop-workshop",
           referenceType: "branch",
           referenceValue: "main",
         },
         kustomizations: [{ name: "flux", path: "flux" }],
-
+        scope: "cluster",
         dependsOn: [clusterExtension],
       }
     );
