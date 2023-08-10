@@ -18,11 +18,13 @@ class MyStack extends TerraformStack {
 
     new AzurermProvider(this, "azurerm", { features: {} });
 
+    // Resource Group
     const resourceGroup = new ResourceGroup(this, "resource-group", {
       name,
       location,
     });
 
+    // VNET
     new VirtualNetwork(this, "vnet", {
       name,
       location,
@@ -36,6 +38,7 @@ class MyStack extends TerraformStack {
       ],
     });
 
+    // Kubernetes cluster
     const cluster = new kubernetesCluster.KubernetesCluster(this, "k8s", {
       name,
       dnsPrefix: name,
@@ -54,14 +57,9 @@ class MyStack extends TerraformStack {
         vmSize: "Standard_B2s",
         enableAutoScaling: true,
       },
-      // ingressApplicationGateway: {
-      //   gatewayName: "home application gateway",
-      //   subnetId: vnet.subnet.get(0).id,
-      // },
     });
 
-    // setup flux
-
+    // Setup the Flux extension
     const clusterExtension =
       new kubernetesClusterExtension.KubernetesClusterExtension(this, "flux", {
         name: "flux",
