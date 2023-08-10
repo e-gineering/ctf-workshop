@@ -36,11 +36,11 @@ spec:
       maxInstances: 20
       resources:
         requests:
-          cpu: 200m
-          memory: 300Mi
+          cpu: 100m
+          memory: 400Mi
         limits:
-          cpu: 200m
-          memory: 300Mi
+          cpu: 1000m
+          memory: 400Mi
 
     balancer:
       metrics:
