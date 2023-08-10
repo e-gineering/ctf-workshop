@@ -3,22 +3,26 @@ import { App, TerraformStack } from "cdktf";
 import { kubernetesCluster } from "@cdktf/provider-azurerm";
 import { AzurermProvider } from "@cdktf/provider-azurerm/lib/provider";
 import { VirtualNetwork } from "@cdktf/provider-azurerm/lib/virtual-network";
+import { ResourceGroup } from "@cdktf/provider-azurerm/lib/resource-group";
 
 class MyStack extends TerraformStack {
   constructor(scope: Construct, id: string) {
     super(scope, id);
 
     const name = "juice-shop-workshop";
-
-    const resourceGroupName = name;
     const location = "eastus";
 
     new AzurermProvider(this, "azurerm", { features: {} });
 
+    const resourceGroup = new ResourceGroup(this, "resource-group", {
+      name,
+      location,
+    });
+
     new VirtualNetwork(this, "vnet", {
       name,
       location,
-      resourceGroupName,
+      resourceGroupName: resourceGroup.name,
       addressSpace: ["10.10.0.0/20"],
       subnet: [
         {
@@ -32,7 +36,7 @@ class MyStack extends TerraformStack {
       name,
       dnsPrefix: name,
       location,
-      resourceGroupName,
+      resourceGroupName: resourceGroup.name,
       kubernetesVersion: "1.27",
       automaticChannelUpgrade: "patch",
       skuTier: "Free",
