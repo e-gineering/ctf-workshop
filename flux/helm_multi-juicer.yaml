@@ -17,6 +17,7 @@ metadata:
 spec:
   targetNamespace: default
   interval: 5m
+  timeout: 10m
   chart:
     spec:
       chart: multi-juicer
