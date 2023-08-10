@@ -10,6 +10,7 @@
     "build": "tsc",
     "synth": "cdktf synth",
     "deploy": "cdktf deploy",
+    "destroy": "cdktf destroy",
     "compile": "tsc --pretty",
     "watch": "tsc -w",
     "upgrade": "npm i cdktf@latest cdktf-cli@latest",
