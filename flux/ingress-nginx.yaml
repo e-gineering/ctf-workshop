@@ -32,3 +32,5 @@ spec:
       service:
         enabled: true
         type: LoadBalancer
+        annotations:
+          service.beta.kubernetes.io/azure-dns-label-name: ctf.silly.hair
