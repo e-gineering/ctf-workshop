@@ -3,10 +3,12 @@
 
 
 
-
 az account show
+
 az account list
+
 az account set --subscription <uuid>
+
 az account show
 
 
@@ -21,3 +23,8 @@ https://github.com/juice-shop/multi-juicer
 
 
 
+
+https://ctf.silly.hair/balancer/score-board/
+
+
+https://pwning.owasp-juice.shop/appendix/trainers.html
