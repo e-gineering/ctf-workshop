@@ -41,6 +41,18 @@ spec:
         limits:
           cpu: 1000m
           memory: 400Mi
+      config: |
+        application:
+          logo: https://raw.githubusercontent.com/juice-shop/multi-juicer/main/images/multijuicer-icon-only-padding.png
+          favicon: https://raw.githubusercontent.com/juice-shop/multi-juicer/main/juice-balancer/ui/public/favicon.ico
+          showVersionNumber: false
+          showGitHubLinks: false
+        challenges:
+          showHints: true
+        hackingInstructor:
+          isEnabled: true
+        ctf:
+          showFlagsInNotifications: false
 
     balancer:
       metrics:
