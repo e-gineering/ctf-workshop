@@ -34,4 +34,5 @@ spec:
         type: LoadBalancer
         annotations:
           test: dummy
-          service.beta.kubernetes.io/azure-dns-label-name: ctf.silly.hair
+          # service.beta.kubernetes.io/azure-dns-label-name: ctf.silly.hair
+          service.beta.kubernetes.io/azure-dns-label-name: test
