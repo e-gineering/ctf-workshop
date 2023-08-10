@@ -27,4 +27,8 @@ spec:
       interval: 1m
   # Default values:
   # https://github.com/kubernetes/ingress-nginx/blob/main/charts/ingress-nginx/values.yaml
-  # values:
+  values:
+    controller:
+      service:
+        enabled: true
+        type: LoadBalancer
