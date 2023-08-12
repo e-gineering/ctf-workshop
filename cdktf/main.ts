@@ -44,6 +44,7 @@ class MyStack extends TerraformStack {
       dnsPrefix: name,
       location,
       resourceGroupName: resourceGroup.name,
+      nodeResourceGroup: resourceGroup.name,
       kubernetesVersion: "1.27",
       automaticChannelUpgrade: "patch",
       skuTier: "Free",
