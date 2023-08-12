@@ -44,7 +44,7 @@ class MyStack extends TerraformStack {
       dnsPrefix: name,
       location,
       resourceGroupName: resourceGroup.name,
-      nodeResourceGroup: resourceGroup.name,
+      nodeResourceGroup: `${name}-nodes`, // The nodes need to be in a separate resource group for some reason
       kubernetesVersion: "1.27",
       automaticChannelUpgrade: "patch",
       skuTier: "Free",
