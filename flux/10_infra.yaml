@@ -7,7 +7,7 @@ spec:
   dependsOn:
     - name: prereqs
   interval: 5m
-  path: "./flux/infra"
+  path: ./flux/infra
   prune: true
   sourceRef:
     kind: GitRepository

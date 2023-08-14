@@ -7,7 +7,7 @@ spec:
   dependsOn:
     - name: infra
   interval: 5m
-  path: "./flux/apps"
+  path: ./flux/apps
   prune: true
   sourceRef:
     kind: GitRepository

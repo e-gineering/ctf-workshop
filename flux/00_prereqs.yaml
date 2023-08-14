@@ -5,7 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 5m
-  path: "./flux/prereqs"
+  path: ./flux/prereqs
   prune: true
   sourceRef:
     kind: GitRepository
