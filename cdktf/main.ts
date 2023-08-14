@@ -81,7 +81,7 @@ class MyStack extends TerraformStack {
           referenceType: "branch",
           referenceValue: "main",
         },
-        kustomizations: [{ name: "flux", path: "flux" }],
+        kustomizations: [{ name: "flux", path: "flux/entry" }],
         scope: "cluster",
         dependsOn: [clusterExtension],
       }
