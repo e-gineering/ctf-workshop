@@ -58,6 +58,8 @@ class MyStack extends TerraformStack {
         vmSize: "Standard_B2s",
         enableAutoScaling: true,
       },
+      oidcIssuerEnabled: true, // Required for the Workload Identity integration
+      workloadIdentityEnabled: true,
     });
 
     // Setup the Flux extension
