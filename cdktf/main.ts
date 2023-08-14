@@ -67,11 +67,6 @@ class MyStack extends TerraformStack {
         clusterId: cluster.id,
         extensionType: "microsoft.flux",
         dependsOn: [cluster],
-        // Increase some timeouts in case the extension creation takes a bit
-        timeouts: {
-          create: "1h",
-          update: "1h",
-        },
       });
 
     new kubernetesFluxConfiguration.KubernetesFluxConfiguration(
@@ -89,11 +84,6 @@ class MyStack extends TerraformStack {
         kustomizations: [{ name: "flux", path: "flux" }],
         scope: "cluster",
         dependsOn: [clusterExtension],
-        // Increase some timeouts in case getting flux installed takes a bit
-        timeouts: {
-          create: "1h",
-          update: "1h",
-        },
       }
     );
   }
