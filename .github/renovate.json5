@@ -1,5 +1,15 @@
 {
-  extends: ["config:base", ":disableRateLimiting"],
+  extends: [
+    "config:recommended",
+    ":disableRateLimiting",
+
+    // Group all minor and patch changes into one PR
+    "group:allNonMajor",
+
+    // Pin deps and devDeps in the package.json
+    ":pinDependencies",
+    ":pinDevDependencies",
+  ],
   flux: {
     fileMatch: ["\\.yaml$"],
   },
