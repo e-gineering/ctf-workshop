@@ -28,3 +28,8 @@ https://ctf.silly.hair/balancer/score-board/
 
 
 https://pwning.owasp-juice.shop/appendix/trainers.html
+
+
+## Runbook
+
+To restart an individual juice shop instance, delete the pod.
