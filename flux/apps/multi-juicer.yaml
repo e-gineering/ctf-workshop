@@ -33,7 +33,7 @@ spec:
   # https://github.com/juice-shop/multi-juicer/blob/main/helm/multi-juicer/values.yaml
   values:
     juiceShop:
-      tag: snapshot
+      tag: v15.1.0
       maxInstances: 20
       resources:
         requests:
