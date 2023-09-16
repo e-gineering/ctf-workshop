@@ -80,7 +80,7 @@ class MyStack extends TerraformStack {
         clusterId: cluster.id,
         namespace: "flux-system",
         gitRepository: {
-          url: "https://github.com/dbirks/juice-shop-workshop",
+          url: "https://github.com/egineering-llc/ctf-workshop",
           referenceType: "branch",
           referenceValue: "main",
         },
