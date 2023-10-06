@@ -19,7 +19,7 @@ spec:
   timeout: 10m
   chart:
     spec:
-      chart: newrelic-bundle
+      chart: nri-bundle
       # Newest `version` here:
       # https://github.com/newrelic/helm-charts/blob/master/charts/nri-bundle/Chart.yaml
       version: "5.0.28"
