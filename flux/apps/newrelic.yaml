@@ -1,0 +1,55 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: newrelic
+  namespace: flux-system
+spec:
+  interval: 1h
+  url: https://helm-charts.newrelic.com
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: newrelic-bundle
+  namespace: flux-system
+spec:
+  targetNamespace: kube-system
+  interval: 5m
+  timeout: 10m
+  chart:
+    spec:
+      chart: newrelic-bundle
+      # Newest `version` here:
+      # https://github.com/newrelic/helm-charts/blob/master/charts/nri-bundle/Chart.yaml
+      version: "5.0.28"
+      sourceRef:
+        kind: HelmRepository
+        name: multi-juicer
+        namespace: flux-system
+      interval: 1m
+  # Default values:
+  # https://github.com/newrelic/helm-charts/blob/master/charts/nri-bundle/values.yaml
+  values:
+    global:
+      cluster: ctf-workshop
+      customSecretName: newrelic-license
+      customSecretLicenseKey: LICENSE_KEY
+
+    newrelic-prometheus-agent:
+      # Automatically scrape prometheus metrics for annotated services in the cluster
+      # Collecting prometheus metrics for large clusters might impact data usage significantly
+      enabled: true
+    nri-metadata-injection:
+      # Deploy our webhook to link APM and Kubernetes entities
+      enabled: true
+    nri-kube-events:
+      # Report Kubernetes events
+      enabled: true
+    newrelic-logging:
+      # Report logs for containers running in the cluster
+      enabled: true
+    kube-state-metrics:
+      # Deploy kube-state-metrics in the cluster.
+      # Set this to true unless it is already deployed.
+      enabled: true
