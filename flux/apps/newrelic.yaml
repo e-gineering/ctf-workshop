@@ -40,4 +40,4 @@ spec:
       enabled: true
 
     nri-metadata-injection:
-      enabled: false
+      enabled: true
