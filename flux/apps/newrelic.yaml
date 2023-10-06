@@ -36,6 +36,12 @@ spec:
       customSecretName: newrelic-license
       customSecretLicenseKey: LICENSE_KEY
 
+    newrelic-infrastructure:
+      enabled: true
+
+    nri-metadata-injection:
+      enabled: false
+
     # newrelic-prometheus-agent:
     #   # Automatically scrape prometheus metrics for annotated services in the cluster
     #   # Collecting prometheus metrics for large clusters might impact data usage significantly
