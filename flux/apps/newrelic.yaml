@@ -41,3 +41,15 @@ spec:
 
     nri-metadata-injection:
       enabled: true
+
+    nri-prometheus:
+      enabled: true
+
+    kube-state-metrics:
+      enabled: true
+
+    nri-kube-events:
+      enabled: true
+
+    newrelic-logging:
+      enabled: true
