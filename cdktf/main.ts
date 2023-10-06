@@ -57,7 +57,7 @@ class MyStack extends TerraformStack {
         maxCount: 10,
         vmSize: "Standard_B2s_v2",
         enableAutoScaling: true,
-        temporaryNameForRotation: "rotating",
+        temporaryNameForRotation: "rotato",
       },
       oidcIssuerEnabled: true, // Required for the Workload Identity integration
       workloadIdentityEnabled: true,
