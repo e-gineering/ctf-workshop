@@ -23,7 +23,7 @@ spec:
       chart: multi-juicer
       # Newest `version` here:
       # https://github.com/juice-shop/multi-juicer/blob/main/helm/multi-juicer/Chart.yaml
-      version: "6.1.0"
+      version: "7.1.0"
       sourceRef:
         kind: HelmRepository
         name: multi-juicer
