@@ -20,7 +20,7 @@
     "node": ">=16.0"
   },
   "dependencies": {
-    "@cdktf/provider-azurerm": "10.0.5",
+    "@cdktf/provider-azurerm": "11.0.7",
     "cdktf": "0.18.2",
     "cdktf-cli": "0.18.2",
     "constructs": "10.2.70"
