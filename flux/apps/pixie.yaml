@@ -1,0 +1,38 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: pixie-operator
+  namespace: flux-system
+spec:
+  interval: 1m
+  url: https://pixie-operator-charts.storage.googleapis.com
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: pixie
+  namespace: kube-system
+spec:
+  interval: 5m0s
+  chart:
+    spec:
+      # https://artifacthub.io/packages/olm/community-operators/pixie-operator
+      chart: pixie-operator-chart
+      version: "0.1.4" # https://github.com/pixie-io/pixie/releases?q=operator&expanded=true
+      sourceRef:
+        kind: HelmRepository
+        name: pixie-operator
+        namespace: flux-system
+      reconcileStrategy: ChartVersion
+  values:
+    deployOLM: true # defaults to true
+    olmNamespace: olm
+    olmOperatorNamespace: pixie-operator
+    devCloudNamespace: pixie-cloud
+    # customDeployKeySecret: pixie-deploy-key
+    patches:
+      vizier-pem: '{ "spec": { "template": { "spec": { "priorityClassName": "system-node-critical" }}}}'
+    clusterName: juice-shop-workshop
+    # # Default 2Gi memory
+    # pemMemoryLimit: 3Gi
+    # pemMemoryRequest: 3Gi
