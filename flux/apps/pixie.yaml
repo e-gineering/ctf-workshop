@@ -31,6 +31,7 @@ spec:
     olmNamespace: olm
     olmOperatorNamespace: pixie-operator
     devCloudNamespace: pixie-cloud
+    deployKey: test
     cloudAddr: pixie.silly.hair:443
     patches:
       vizier-pem: '{ "spec": { "template": { "spec": { "priorityClassName": "system-node-critical" }}}}'
