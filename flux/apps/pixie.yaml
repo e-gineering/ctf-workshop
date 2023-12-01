@@ -24,12 +24,14 @@ spec:
         name: pixie-operator
         namespace: flux-system
       reconcileStrategy: ChartVersion
+  # Default values:
+  # https://github.com/pixie-io/pixie/blob/main/k8s/operator/helm/values.yaml
   values:
     deployOLM: true # defaults to true
     olmNamespace: olm
     olmOperatorNamespace: pixie-operator
     devCloudNamespace: pixie-cloud
-    # customDeployKeySecret: pixie-deploy-key
+    cloudAddr: pixie.silly.hair:443
     patches:
       vizier-pem: '{ "spec": { "template": { "spec": { "priorityClassName": "system-node-critical" }}}}'
     clusterName: juice-shop-workshop
