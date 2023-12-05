@@ -21,13 +21,13 @@
   },
   "dependencies": {
     "@cdktf/provider-azurerm": "11.0.7",
-    "cdktf": "0.18.2",
-    "cdktf-cli": "0.18.2",
-    "constructs": "10.2.70"
+    "cdktf": "0.19.2",
+    "cdktf-cli": "0.19.2",
+    "constructs": "10.3.0"
   },
   "devDependencies": {
-    "@types/node": "20.8.2",
+    "@types/node": "20.10.3",
     "ts-node": "10.9.1",
-    "typescript": "5.2.2"
+    "typescript": "5.3.2"
   }
 }
