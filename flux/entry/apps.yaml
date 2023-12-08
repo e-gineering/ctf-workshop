@@ -6,7 +6,8 @@ metadata:
 spec:
   dependsOn:
     - name: prereqs
-  interval: 5m
+  # interval: 5m
+  interval: 10s
   path: ./flux/apps
   prune: true
   sourceRef:
