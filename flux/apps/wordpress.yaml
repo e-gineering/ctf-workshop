@@ -32,6 +32,8 @@ spec:
   # Default values:
   # https://github.com/bitnami/charts/blob/main/bitnami/wordpress/values.yaml
   values:
+    service:
+      type: ClusterIP
     ingress:
       enabled: true
       annotations:
