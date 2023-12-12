@@ -57,3 +57,7 @@ spec:
           paths:
             - path: /
               pathType: ImplementationSpecific
+      tls:
+        - secretName: gitops-tls
+          hosts:
+            - gitops.silly.hair
