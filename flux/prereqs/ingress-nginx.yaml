@@ -19,7 +19,7 @@ spec:
   chart:
     spec:
       chart: ingress-nginx
-      version: "4.8.4" # https://artifacthub.io/packages/helm/ingress-nginx/ingress-nginx
+      version: "4.9.1" # https://artifacthub.io/packages/helm/ingress-nginx/ingress-nginx
       sourceRef:
         kind: HelmRepository
         name: ingress-nginx
