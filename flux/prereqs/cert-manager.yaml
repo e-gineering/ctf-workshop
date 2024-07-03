@@ -19,7 +19,7 @@ spec:
   chart:
     spec:
       chart: cert-manager
-      version: "v1.14.2" # https://artifacthub.io/packages/helm/cert-manager/cert-manager
+      version: "v1.15.1" # https://artifacthub.io/packages/helm/cert-manager/cert-manager
       sourceRef:
         kind: HelmRepository
         name: jetstack
