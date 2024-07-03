@@ -18,7 +18,7 @@ spec:
     spec:
       # https://artifacthub.io/packages/olm/community-operators/pixie-operator
       chart: pixie-operator-chart
-      version: "0.1.4" # https://github.com/pixie-io/pixie/releases?q=operator&expanded=true
+      version: "0.1.6" # https://github.com/pixie-io/pixie/releases?q=operator&expanded=true
       sourceRef:
         kind: HelmRepository
         name: pixie-operator
