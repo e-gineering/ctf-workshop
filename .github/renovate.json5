@@ -13,4 +13,7 @@
   flux: {
     fileMatch: ["\\.yaml$"],
   },
+
+  // Make renovate wait til manually triggered by interacting with the Dependency Dashboard issue
+  dependencyDashboardApproval: true,
 }
